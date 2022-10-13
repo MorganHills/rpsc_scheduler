@@ -13,7 +13,7 @@ param$courts <- 1:10
 param$court_weeks <- rep(list(param$courts),length(param$weeks))
 
 ## SIMULATION PROCESSING PARAMETERS
-param$sim$settings$schedules_n <- 5000
+param$sim$settings$schedules_n <- 200
 param$sim$settings$processing_options <- c(
   "parallel" #windows machine with parallel package installed, faster
   ,"base" #single processor, easier admin, slower
