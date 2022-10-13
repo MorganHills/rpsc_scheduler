@@ -3,8 +3,6 @@ require(tidyverse)
 require(gtools)
 require(parallel)
 
-setwd("C:/Users/Morgan/_data_projects/rpsc_scheduler")
-
 ## 
 param <- list()
 param$teams <- 1:20
