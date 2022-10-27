@@ -1,9 +1,7 @@
 #rm(list = ls())
-require(tidyverse)
-require(gtools)
-require(parallel)
+source("./code/main.R")
 
-setwd("C:/Users/Morgan/_data_projects/rpsc_scheduler")
+main$func$require_packages(c('tidyverse','parallel'))
 
 ## 
 param <- list()
@@ -13,7 +11,7 @@ param$courts <- 1:10
 param$court_weeks <- rep(list(param$courts),length(param$weeks))
 
 ## SIMULATION PROCESSING PARAMETERS
-param$sim$settings$schedules_n <- 5000
+param$sim$settings$schedules_n <- 200
 param$sim$settings$processing_options <- c(
   "parallel" #windows machine with parallel package installed, faster
   ,"base" #single processor, easier admin, slower
@@ -22,6 +20,7 @@ param$sim$settings$processing_options <- c(
 param$sim$settings$processing_method <- "parallel"
 
 sim <- list()
+
 #randomize scenario
 sim$df <- data.frame(
   team = param$teams
@@ -225,5 +224,6 @@ for(i in param$teams){
     left_join(sim$df, by = c("opponent" = "team")) %>% 
     print
 }
+
 rm("i")
 
